@@ -60,7 +60,7 @@ a1=np.array(fourier(señal1))[: int(n1/2)]  #Tomamos la mitad de los valores pue
 a2=np.array(fourier(señal2))[:int(n2/2)]
 
 #Se realiza implementacion propia para obtener los valores de las frecuencias.
-print("\n Implementacion propia para hallar frecuencias")
+print("\n Se usa implementacion propia para hallar frecuencias")
 dt1=t1[1]-t1[0]
 w1=(np.arange(n1)/(n1*dt1))[:int(n1/2)]
 dt2=t2[1]-t2[0]
@@ -105,4 +105,37 @@ ax2.set_xlabel("Tiempo")
 ax2.set_ylabel("Frecuencias")
 
 figura.savefig("grafica_espectrogramas.png")
+plt.close()
+
+#Se aplica lo anterior a datos reales relacionados con una señal sismica.
+
+url3='https://raw.githubusercontent.com/dclivioh/hw2_data/master/temblor.txt'
+temblor=wget.download(url3)
+datostemblor=np.genfromtxt("temblor.txt",skip_header=3)
+
+Fs=100
+dt=1/Fs
+tiempo=np.arange(0,len(datostemblor))*dt
+plt.plot(tiempo,datostemblor,"firebrick")
+plt.title("Señal en funcion del tiempo")
+plt.xlabel("Tiempo")
+plt.ylabel("Amplitud")
+plt.savefig("grafica_señaltemblor.png")
+plt.close()
+
+amplitudes=fft(datostemblor)[:int(len(datostemblor)/2)]
+frecuencias=fftfreq(len(datostemblor),dt)[:int(len(datostemblor)/2)]
+plt.plot(frecuencias,abs(amplitudes),"dodgerblue")
+plt.title("Transformada de Fourier de la señal")
+plt.xlabel("Frecuencias")
+plt.ylabel("Amplitudes")
+plt.savefig("grafica_transformadatemblor.png")
+plt.close()
+
+
+val1,val2,val3,val4=plt.specgram(datostemblor,Fs=100)
+plt.title("Espectograma de la señal de un temblor")
+plt.xlabel("Tiempo")
+plt.ylabel("Frecuencias")
+plt.savefig("grafica_espectogramatemblor.png")
 plt.close()

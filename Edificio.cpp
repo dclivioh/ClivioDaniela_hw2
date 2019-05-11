@@ -79,4 +79,12 @@ int main(){
   }
 //Llamamos a la función Runge Kutta.
   RungeKutta(dt,t,F,gamma,k,w,m,ncols,n,u,v,k1,k2,k3,k4);
+
+//Almacenamos los datos obtenidos en un archivo .dat
+  ofstream archivo1;
+  archivo1.open("resultados.dat");
+  for (int i = 0; i < n; i++) {
+    archivo1 << t[i] << " " << u[i*ncols+0] << " " << u[i*ncols+1]<< " " << u[i*ncols+2]<< " " << v[i*ncols+0]<< " " << v[i*ncols+1]<< " " << v[i*ncols+2] << endl;
+  }
+  archivo1.close();
 }

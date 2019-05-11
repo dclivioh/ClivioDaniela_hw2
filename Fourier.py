@@ -37,7 +37,7 @@ ax2.set_xlabel("Tiempo")
 ax2.set_ylabel("Amplitud")
 ax2.legend()
 
-figura.savefig("grafica_señales.png")
+figura.savefig("grafica_senales.pdf")
 plt.close()
 
 #Se utiliza implementacion propia de la transformada de Fourier para una señal.
@@ -84,7 +84,7 @@ ax2.set_xlabel("Frecuencia")
 ax2.set_ylabel("Amplitud")
 ax2.legend()
 
-figura.savefig("grafica_transformadas.png")
+figura.savefig("grafica_transformadas.pdf")
 plt.close()
 
 #Se grafican los espectrogramas para cada señal
@@ -104,7 +104,7 @@ ax2.set_title("Espectrograma de las señales superpuestas")
 ax2.set_xlabel("Tiempo")
 ax2.set_ylabel("Frecuencias")
 
-figura.savefig("grafica_espectrogramas.png")
+figura.savefig("grafica_espectrogramas.pdf")
 plt.close()
 
 #Se aplica lo anterior a datos reales relacionados con una señal sismica.
@@ -120,7 +120,7 @@ plt.plot(tiempo,datostemblor,"firebrick")
 plt.title("Señal en funcion del tiempo")
 plt.xlabel("Tiempo")
 plt.ylabel("Amplitud")
-plt.savefig("grafica_señaltemblor.png")
+plt.savefig("grafica_senaltemblor.pdf")
 plt.close()
 
 amplitudes=fft(datostemblor)[:int(len(datostemblor)/2)]
@@ -129,7 +129,7 @@ plt.plot(frecuencias,abs(amplitudes),"dodgerblue")
 plt.title("Transformada de Fourier de la señal")
 plt.xlabel("Frecuencias")
 plt.ylabel("Amplitudes")
-plt.savefig("grafica_transformadatemblor.png")
+plt.savefig("grafica_transformadatemblor.pdf")
 plt.close()
 
 
@@ -137,5 +137,5 @@ val1,val2,val3,val4=plt.specgram(datostemblor,Fs=100)
 plt.title("Espectograma de la señal de un temblor")
 plt.xlabel("Tiempo")
 plt.ylabel("Frecuencias")
-plt.savefig("grafica_espectogramatemblor.png")
+plt.savefig("grafica_espectrogramatemblor.pdf")
 plt.close()

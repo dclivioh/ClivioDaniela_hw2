@@ -101,4 +101,20 @@ int main(){
     }
     }
   }
+  //Calculamos RungeKutta para diferentes valores de wf. Hallamos los valores máximos de amplitud para cada posición.
+  for(int l=1;l<100;l++){
+      double dw=(2.8*sqrt(k/m))/100;
+      wf[l]=wf[l-1]+dw;
+      RungeKutta(dt,t,F,gamma,k,wf[l],m,ncols,n,u,v,k1,k2,k3,k4);
+      umax[l][0]=0;
+      umax[l][1]=0;
+      umax[l][2]=0;
+      for(int j=0;j<3;j++){
+        for(int i=0;i<n;i++){
+        if(umax[l][j]<u[i*ncols+j]){
+          umax[l][j]=u[i*ncols+j];
+        }
+        }
+    }
+  }
 }

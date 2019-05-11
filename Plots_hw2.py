@@ -36,3 +36,36 @@ ax3.legend()
 
 figura.savefig("grafica_Ui.png")
 plt.close()
+
+#Se almacenan los datos y se le asignan sus variables correspondientes.
+datosw=np.genfromtxt("resultados_frec.dat")
+
+w=datosw[:,0]
+umax1=datosw[:,1]
+umax2=datosw[:,2]
+umax3=datosw[:,3]
+
+#Se grafican las amplitudes máximas en funcion de las frecuencias
+figura2=plt.figure(figsize=(10,10))
+figura2.suptitle("Amplitud maxima vs Frecuencia")
+ax4=figura2.add_subplot(311)
+ax5=figura2.add_subplot(312)
+ax6=figura2.add_subplot(313)
+
+ax4.plot(w,umax1,c="lightseagreen",label="Amplitud max u1 vs Frecuencia")
+ax4.set_xlabel("Frecuencia")
+ax4.set_ylabel("Umax1")
+ax4.legend()
+
+ax5.plot(w,umax2,c="slateblue", label="Amplitud max u2 vs Frecuencia")
+ax5.set_xlabel("Frecuencia")
+ax5.set_ylabel("Umax2")
+ax5.legend()
+
+ax6.plot(w,umax3,c="deeppink", label="Amplitud max u3 vs Frecuencia")
+ax6.set_xlabel("Frecuencia")
+ax6.set_ylabel("Umax3")
+ax6.legend()
+
+figura2.savefig("grafica_wAmax.png")
+plt.close()

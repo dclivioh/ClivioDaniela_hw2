@@ -117,4 +117,16 @@ int main(){
         }
     }
   }
+  //Almacenamos los datos en un archivo .dat 
+  ofstream archivo2;
+  archivo2.open("resultados_frec.dat");
+  for (int i = 0; i < 100; i++) {
+    archivo2 << wf[i] << " " << umax[i][0] << " " << umax[i][1]<< " " << umax[i][2]<< endl;
+  }
+  archivo2.close();
+
+
+    delete[] t;
+    delete[] u;
+    delete[] v;
 }

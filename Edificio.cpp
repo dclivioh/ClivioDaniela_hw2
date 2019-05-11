@@ -87,4 +87,18 @@ int main(){
     archivo1 << t[i] << " " << u[i*ncols+0] << " " << u[i*ncols+1]<< " " << u[i*ncols+2]<< " " << v[i*ncols+0]<< " " << v[i*ncols+1]<< " " << v[i*ncols+2] << endl;
   }
   archivo1.close();
+
+//Se definen las condiciones iniciales de las amplitudes máximas para cada posicion en el tiempo.
+  wf[0]=0.2*sqrt(k/m);
+  RungeKutta(dt,t,F,gamma,k,wf[0],m,ncols,n,u,v,k1,k2,k3,k4);
+  umax[0][0]=0;
+  umax[0][1]=0;
+  umax[0][2]=0;
+  for(int j=0;j<3;j++){
+    for(int i=0;i<n;i++){
+    if(umax[0][j]<u[i*ncols+j]){
+      umax[0][j]=u[i*ncols+j];
+    }
+    }
+  }
 }

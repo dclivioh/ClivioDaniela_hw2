@@ -26,14 +26,16 @@ Daniela Clivio Hernández\\
 \end{center}
 
 \noindent
-\section{Ejercicio 1: Fourier}
+\section{Ejercicio 1: Transformada de Fourier: imprementación propia, paquetes de scipy y espectrogramas.}
+En esta gráfica observamos la señales dadas contiguas y superpuestas, donde se observan dos frecuencias dadas.\
 \begin{figure}[H]
 \centering
-\includegraphics[height=16cm]{grafica_senales.pdf}
+\includegraphics[height=15cm]{grafica_senales.pdf}
 \caption{Señales signal.dat y signalSuma.dat}
 \label{fig1}
 \end{figure}
 
+Se aplica la transformada de Fourier a las señales dadas y obtenemos las amplitudes en función de las posiciones de las frecuencias. Acá observamos donde se presentan las dos frecuencias, sin embargo no conocemos los valores de estas frecuencias. Se utiliza una implementación propia para recuperar los valores de las frecuencias, por medio de XXXXXX \\
 \begin{figure}[H]
 \centering
 \includegraphics[height=16cm]{grafica_transformadas.pdf}
@@ -41,6 +43,7 @@ Daniela Clivio Hernández\\
 \label{fig2}
 \end{figure}
 
+Se grafican los espectrogramas de las señales. Este gráfico 3D, nos muestra en el eje x el tiempo, en el eje y las frecuencias y en el color, la tercera dimensión, las amplitudes. Se observan los picos de amplitud entre 0 y 500, lo cual se ve representado en los espectrogramas con las lineas rectas. Así mismo en el primer espectrograma se observan cada una de las señales independientemente así como el cambio entre ellas. Mientras que en el segundo espectrograma se ve una gráfica más homogénea que se muestra casi que como una sola señal. Sin embargo se mantienen los picos entre 0 y 500. \\
 \begin{figure}[H]
 \centering
 \includegraphics[height=16cm]{grafica_espectrogramas.pdf}
@@ -48,6 +51,7 @@ Daniela Clivio Hernández\\
 \label{fig3}
 \end{figure}
 
+Observamos la señal generada por datos reales tomados de un temblor con un cambio brusco alrededor de 500 en el tiempo. \\
 \begin{figure}[H]
 \centering
 \includegraphics[height=9cm]{grafica_senaltemblor.pdf}
@@ -55,6 +59,7 @@ Daniela Clivio Hernández\\
 \label{fig4}
 \end{figure}
 
+Se grafica la transformada de Fourier aplicada a la señal del temblor.\\
 \begin{figure}[H]
 \centering
 \includegraphics[height=9cm]{grafica_transformadatemblor.pdf}
@@ -62,6 +67,7 @@ Daniela Clivio Hernández\\
 \label{fig5}
 \end{figure}
 
+Obtenemos el espectrograma de la señal donde se tiene lo que parece ser un salto entre 500 y 600, lo que equivale a la disminución de la señal que se observa en la figura \ref{fig4} en la transición de las dos amplitudes fuertes predominantes. \\
 \begin{figure}[H]
 \centering
 \includegraphics[height=9cm]{grafica_espectrogramatemblor.pdf}
@@ -69,6 +75,21 @@ Daniela Clivio Hernández\\
 \label{fig6}
 \end{figure}
 
-%Analisis de resultados...
+\noindent
+\section{Ejercicio 2: Ecuaciones diferenciales ordinarias: un edificio en un sismo.}
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=15cm]{grafica_Ui.pdf}
+\caption{Amplitudes máximas en función del tiempo para cada piso.}
+\label{fig7}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=15cm]{grafica_wAmax.pdf}
+\caption{Amplitudes máximas en función de las frecuencias}
+\label{fig8}
+\end{figure}
 
 \end{document}

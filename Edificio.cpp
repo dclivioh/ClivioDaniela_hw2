@@ -1,5 +1,6 @@
 #include <iostream>
 #include <math.h>
+#include <fstream>
 
 using namespace std;
 
@@ -70,6 +71,8 @@ int main(){
   k4=new double[6];
   double *t;
   t= new double [n];
+  double wf[100];
+  double umax[100][3];
 // Se inicializan los valores de u, v y tiempo t.
   for (int j;j<3;j++){
     int i=0;
@@ -117,7 +120,7 @@ int main(){
         }
     }
   }
-  //Almacenamos los datos en un archivo .dat 
+  //Almacenamos los datos en un archivo .dat
   ofstream archivo2;
   archivo2.open("resultados_frec.dat");
   for (int i = 0; i < 100; i++) {

@@ -24,20 +24,20 @@ void RungeKutta(double dt,double *t,double (*F)(double ,double),double gamma, do
 
     k3[0]=(v[(i-1)*ncols+0]+dt/2.0*k2[0])*dt;
     k3[1]=(v[(i-1)*ncols+1]+dt/2.0*k2[1])*dt;
-    k3[1]=(v[(i-1)*ncols+2]+dt/2.0*k2[2])*dt;
+    k3[2]=(v[(i-1)*ncols+2]+dt/2.0*k2[2])*dt;
     k3[3]=dt/m*(-gamma*(v[(i-1)*ncols+0]+dt/2.0*k2[3])-2.0*k*(u[(i-1)*ncols+0]+dt/2.0*k2[0])+k*(u[(i-1)*ncols+1]+dt/2.0*k2[1])+F(t[i-1]+dt/2,w));
     k3[4]=dt/m*(-gamma*(v[(i-1)*ncols+1]+dt/2.0*k2[4])+k*(u[(i-1)*ncols+0]+dt/2.0*k2[0])-2.0*k*(u[(i-1)*ncols+1]+dt/2.0*k2[1])+k*(u[(i-1)*ncols+2]+dt/2.0*k2[2]));
     k3[5]=dt/m*(-gamma*(v[(i-1)*ncols+2]+dt/2.0*k2[5])+k*(u[(i-1)*ncols+1]+dt/2.0*k2[1])-k*(u[(i-1)*ncols+2]+dt/2.0*k2[2]));
 
-    k4[0]=(v[(i-1)*ncols+0]+k3[0])*dt;
-    k4[1]=(v[(i-1)*ncols+1]+k3[1])*dt;
-    k4[2]=(v[(i-1)*ncols+2]+k3[2])*dt;
-    k4[3]=dt/m*(-gamma*(v[(i-1)*ncols+0]+k3[3])-2.0*k*(u[(i-1)*ncols+0]+k3[0])+k*(u[(i-1)*ncols+1]+k3[1])+F(t[i-1]+dt,w));
-    k4[4]=dt/m*(-gamma*(v[(i-1)*ncols+1]+k3[4])+k*(u[(i-1)*ncols+0]+k3[0])-2.0*k*(u[(i-1)*ncols+1]+k3[1])+k*(u[(i-1)*ncols+2]+k3[2]));
-    k4[5]=dt/m*(-gamma*(v[(i-1)*ncols+2]+k3[5])+k*(u[(i-1)*ncols+1]+k3[1])-k*(u[(i-1)*ncols+2]+k3[2]));
+    k4[0]=(v[(i-1)*ncols+0]+dt*k3[0])*dt;
+    k4[1]=(v[(i-1)*ncols+1]+dt*k3[1])*dt;
+    k4[2]=(v[(i-1)*ncols+2]+dt*k3[2])*dt;
+    k4[3]=dt/m*(-gamma*(v[(i-1)*ncols+0]+dt*k3[3])-2.0*k*(u[(i-1)*ncols+0]+dt*k3[0])+k*(u[(i-1)*ncols+1]+dt*k3[1])+F(t[i-1]+dt,w));
+    k4[4]=dt/m*(-gamma*(v[(i-1)*ncols+1]+dt*k3[4])+k*(u[(i-1)*ncols+0]+dt*k3[0])-2.0*k*(u[(i-1)*ncols+1]+dt*k3[1])+k*(u[(i-1)*ncols+2]+dt*k3[2]));
+    k4[5]=dt/m*(-gamma*(v[(i-1)*ncols+2]+dt*k3[5])+k*(u[(i-1)*ncols+1]+dt*k3[1])-k*(u[(i-1)*ncols+2]+dt*k3[2]));
     for(int j=0;j<3;j++){
-      u[i*ncols+j]=u[(i-1)*ncols+j]+dt/6.0*(k1[j]+2.0*k2[j]+2.0*k3[j]+k4[j]);
-      v[i*ncols+j]=v[(i-1)*ncols+j]+dt/6.0*(k1[j+3]+2.0*k2[j+3]+2.0*k3[j+3]+k4[j+3]);
+      u[i*ncols+j]=u[(i-1)*ncols+j]+1/6.0*(k1[j]+2.0*k2[j]+2.0*k3[j]+k4[j]);
+      v[i*ncols+j]=v[(i-1)*ncols+j]+1/6.0*(k1[j+3]+2.0*k2[j+3]+2.0*k3[j+3]+k4[j+3]);
        }
     }
 }
@@ -49,8 +49,8 @@ double F(double t,double w){
 
 int main(){
   // Implementamos las condiciones iniciales del problema
-  double tf=120;
-  double dt=0.25;
+  double tf=30;
+  double dt=0.01;
   int n=int(tf/dt);
   int ncols=3;
   double m=1000.0;
@@ -73,10 +73,10 @@ int main(){
   t= new double [n];
   double wf[100];
   double umax[100][3];
-  double w1=0.3;
-  double w2=0.5;
-  double w3=0.6;
-  double w4=1.0;
+  double w1=0.6;
+  double w2=1.8;
+  double w3=2.6;
+  double w4=4.0;
 // Se inicializan los valores de u, v y tiempo t.
   for (int j;j<3;j++){
     int i=0;

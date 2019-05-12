@@ -84,6 +84,7 @@ int main(){
     v[i*ncols+j]=0;
     t[i]=0;
   }
+
 //Llamamos a la función Runge Kutta.
   RungeKutta(dt,t,F,gamma,k,w1,m,ncols,n,u,v,k1,k2,k3,k4);
 

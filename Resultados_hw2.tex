@@ -35,7 +35,7 @@ En esta gráfica observamos la señales dadas contiguas y superpuestas, donde se
 \label{fig1}
 \end{figure}
 
-Se aplica la transformada de Fourier a las señales dadas y obtenemos las amplitudes en función de las posiciones de las frecuencias. Acá observamos donde se presentan las dos frecuencias, sin embargo no conocemos los valores de estas frecuencias. Se utiliza una implementación propia para recuperar los valores de las frecuencias, por medio de XXXXXX \\
+Se aplica la transformada de Fourier a las señales dadas y obtenemos las amplitudes en función de las posiciones de las frecuencias. Acá observamos donde se presentan las dos frecuencias, sin embargo no conocemos los valores de estas frecuencias. Se utiliza una implementación propia para recuperar los valores de las frecuencias, por medio de la ecuacion $k/n*dt$ donde k es un arreglo del tamaño de la señal, n es el tamaño de la señal y dt el paso del tiempo.\\
 \begin{figure}[H]
 \centering
 \includegraphics[height=16cm]{grafica_transformadas.pdf}
@@ -78,7 +78,7 @@ Obtenemos el espectrograma de la señal donde se tiene lo que parece ser un salt
 \noindent
 \section{Ejercicio 2: Ecuaciones diferenciales ordinarias: un edificio en un sismo.}
 
-En estas gráficas tenemos el comportamiento de la amplitud en función del tiempo para determinados valores de w. Para el primer valor de w, w1=0.3, estamos comenzando a llegar al primer modo normaly la amplitud de la señal no es constante. Para w2=0.5 estamos casi en el pico del cambio entre los dos modos normales por lo que nuestra señal de la amplitud es casi constante. Para w3=0.6 estamos sobre un pico del segundo modo normal donde observamos que la amplitud es constante pues estamos en el valor máximo. Por último, para w4=1.0 nos encontramos en un punto donde la amplitud se encuentra en una transición de oscilaciones hacia su frecuencia natural por lo que la señal obtenida no es constante pues no estamos en ningún pico. \\
+En estas gráficas tenemos el comportamiento de la amplitud en función del tiempo para determinados valores de w. Para el primer valor de w, w1=0.6, observamos una señal con gran periodo y amplitud que corresponde al primer modo. Para w2=1.8 estamos en el pico del segundo modo, donde vemos una señal con un periodo menor y más constante. Para w3=2.6 tenemos una señal similar al w2 pero con mayor frecuencia que corresponde al pico del tercer modo. Por último, para w4=4.0 no encontramos un modo en el que predomine la vibración de las masas  según las posibilidades físicas.\\
 \begin{figure}[H]
 \centering
 \includegraphics[height=15cm]{grafica_ui.pdf}
@@ -86,7 +86,7 @@ En estas gráficas tenemos el comportamiento de la amplitud en función del tiem
 \label{fig7}
 \end{figure}
 
-En la gráfica de las amplitudes máximas en función del tiempo, observamos dos picos entre 0 y 1.0 Hz. Estos dos picos equivalen a dos modos normales generados durante la onda de movimiento. En el piso 1 observamos que hay un mayor aporte por parte de la frecuencia del segundo modo normal, pero en el piso 3 se ve una afectación superior por parte del primer modo normal. Mientras que el piso 2 recibe una afectación casi que igual por parte de ambos modos normales. \\
+En la gráfica de las amplitudes máximas en función del tiempo, observamos tres picos. Estos picos equivalen a tres frecuencias asociadas a tres modos normales que corresponden a las formas posibles de vibrar de las masas. En el piso 1 observamos que hay un mayor aporte por parte de la frecuencia del segundo modo normal, el piso dos tiene mayor tendencia a los modos 1 y 3. Mientras que el piso 3 presenta predominancia de los dos primeros modos. \\
 \begin{figure}[H]
 \centering
 \includegraphics[height=15cm]{grafica_wAmax.pdf}

@@ -73,6 +73,10 @@ int main(){
   t= new double [n];
   double wf[100];
   double umax[100][3];
+  double w1=0.3;
+  double w2=0.5;
+  double w3=0.6;
+  double w4=1.0;
 // Se inicializan los valores de u, v y tiempo t.
   for (int j;j<3;j++){
     int i=0;
@@ -81,15 +85,51 @@ int main(){
     t[i]=0;
   }
 //Llamamos a la función Runge Kutta.
-  RungeKutta(dt,t,F,gamma,k,w,m,ncols,n,u,v,k1,k2,k3,k4);
+  RungeKutta(dt,t,F,gamma,k,w1,m,ncols,n,u,v,k1,k2,k3,k4);
 
 //Almacenamos los datos obtenidos en un archivo .dat
   ofstream archivo1;
-  archivo1.open("resultados.dat");
+  archivo1.open("resultadosw1.dat");
   for (int i = 0; i < n; i++) {
-    archivo1 << t[i] << " " << u[i*ncols+0] << " " << u[i*ncols+1]<< " " << u[i*ncols+2]<< " " << v[i*ncols+0]<< " " << v[i*ncols+1]<< " " << v[i*ncols+2] << endl;
+    archivo1 << t[i] << " " << u[i*ncols+0] << " " << u[i*ncols+1]<< " " << u[i*ncols+2]<< endl;
   }
   archivo1.close();
+
+  //Llamamos a la función Runge Kutta.
+    RungeKutta(dt,t,F,gamma,k,w2,m,ncols,n,u,v,k1,k2,k3,k4);
+
+  //Almacenamos los datos obtenidos en un archivo .dat
+    ofstream archivo2;
+    archivo2.open("resultadosw2.dat");
+    for (int i = 0; i < n; i++) {
+      archivo2 << t[i] << " " << u[i*ncols+0] << " " << u[i*ncols+1]<< " " << u[i*ncols+2]<< endl;
+    }
+    archivo2.close();
+
+
+    //Llamamos a la función Runge Kutta.
+      RungeKutta(dt,t,F,gamma,k,w3,m,ncols,n,u,v,k1,k2,k3,k4);
+
+    //Almacenamos los datos obtenidos en un archivo .dat
+      ofstream archivo3;
+      archivo3.open("resultadosw3.dat");
+      for (int i = 0; i < n; i++) {
+        archivo3 << t[i] << " " << u[i*ncols+0] << " " << u[i*ncols+1]<< " " << u[i*ncols+2]<< endl;
+      }
+      archivo3.close();
+
+
+      //Llamamos a la función Runge Kutta.
+        RungeKutta(dt,t,F,gamma,k,w4,m,ncols,n,u,v,k1,k2,k3,k4);
+
+      //Almacenamos los datos obtenidos en un archivo .dat
+        ofstream archivo4;
+        archivo4.open("resultadosw4.dat");
+        for (int i = 0; i < n; i++) {
+          archivo4 << t[i] << " " << u[i*ncols+0] << " " << u[i*ncols+1]<< " " << u[i*ncols+2]<< endl;
+        }
+        archivo4.close();
+
 
 //Se definen las condiciones iniciales de las amplitudes máximas para cada posicion en el tiempo.
   wf[0]=0.2*sqrt(k/m);
@@ -121,12 +161,12 @@ int main(){
     }
   }
   //Almacenamos los datos en un archivo .dat
-  ofstream archivo2;
-  archivo2.open("resultados_frec.dat");
+  ofstream archivo5;
+  archivo5.open("resultados_umax.dat");
   for (int i = 0; i < 100; i++) {
-    archivo2 << wf[i] << " " << umax[i][0] << " " << umax[i][1]<< " " << umax[i][2]<< endl;
+    archivo5 << wf[i] << " " << umax[i][0] << " " << umax[i][1]<< " " << umax[i][2]<< endl;
   }
-  archivo2.close();
+  archivo5.close();
 
 
     delete[] t;
